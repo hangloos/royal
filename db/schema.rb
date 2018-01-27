@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127175228) do
+ActiveRecord::Schema.define(version: 20180127181014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "batches", force: :cascade do |t|
+    t.bigint "calculation_id"
+    t.bigint "route_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calculation_id"], name: "index_batches_on_calculation_id"
+    t.index ["route_id"], name: "index_batches_on_route_id"
+  end
+
+  create_table "calculations", force: :cascade do |t|
+    t.string "name"
+    t.integer "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
@@ -48,6 +64,8 @@ ActiveRecord::Schema.define(version: 20180127175228) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "batches", "calculations"
+  add_foreign_key "batches", "routes"
   add_foreign_key "quantities", "routes"
   add_foreign_key "quantities", "units"
 end
