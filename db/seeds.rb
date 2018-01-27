@@ -16,31 +16,31 @@
 #AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
 
 
-5.times do |index|
-  Unit.create!(name: Faker::Beer.name, clean_time: rand(1...50))
-end
+ 5.times do |index|
+   Unit.create!(name: Faker::Beer.name, clean_time: rand(1...50))
+ end
 
-30.times do |index|
-  Location.create!(name: Faker::StarWars.name, address: Faker::Address.street_address, 
-    city: Faker::Address.city, zipcode: Faker::Address.zip)
-end
+ 30.times do |index|
+   Location.create!(name: Faker::StarWars.character, address: Faker::Address.street_address, 
+     city: Faker::Address.city, zipcode: Faker::Address.zip)
+ end
 
-20.times do |index|
-  Route.create!(name: Faker::StarWars.name, location_id: rand(1...30))
-end
+# 20.times do |index|
+#   Route.create!(name: Faker::StarWars.name, location_id: rand(1...30))
+# end
 
-20.times do |index|
-  Quantity.create!(amount: rand(1...10), route_id: rand(1...20), unit_id: rand(1...5))
-end
+# 20.times do |index|
+#   Quantity.create!(amount: rand(1...10), route_id: rand(1...20), unit_id: rand(1...5))
+# end
 
-b1 = Batch.create
-b1.save
+# b1 = Batch.create
+# b1.save
 
-c = Calculation.create(amount: 10)
-b1.calculation_id = c.id
-c.routes << Route.all
-c.save
-b1.save
+# c = Calculation.create(amount: 10)
+# b1.calculation_id = c.id
+# c.routes << Route.all
+# c.save
+# b1.save
 
 
 # Spice.destroy_all
