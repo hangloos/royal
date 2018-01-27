@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  amount: 1
+  route: one
+  unit: one
+
+two:
+  amount: 1
+  route: two
+  unit: two
