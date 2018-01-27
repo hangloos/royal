@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   resources :calculations, only: [:index]
+  get '/calculate', to: 'calculations#calculate'
 
 end

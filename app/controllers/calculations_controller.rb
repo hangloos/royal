@@ -6,4 +6,9 @@ class CalculationsController < ActionController::Base
   end
 
 
+  def calculate
+    @calculations = Calculation.all
+  end
+
+
 end
