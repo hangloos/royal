@@ -12,4 +12,4 @@ l = Location.create(name: "loc 1", address: "1509 w thomas st", city: "chicago",
 r = Route.create(location_id: l.id, name: "route 1")
 q = Quantity.create(amount: 5, route_id: r.id, unit_id: u.id)
 c = Calculation.create(name: "calc 1", amount: 10)
-b = Batch.create(calculation_id: c.id, route_id: r.id)
+b = Batch.create(calculation_id: c.id, route_id: r.id)AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
